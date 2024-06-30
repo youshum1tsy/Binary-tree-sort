@@ -1,78 +1,50 @@
 ﻿  main.cpp
-D:\практика\Binary-tree-sort\Binary-tree-sort\main.cpp(32,73): warning C4244: аргумент: преобразование "const int" в "T", возможна потеря данных
-D:\практика\Binary-tree-sort\Binary-tree-sort\main.cpp(32,73): warning C4244:         with
-D:\практика\Binary-tree-sort\Binary-tree-sort\main.cpp(32,73): warning C4244:         [
-D:\практика\Binary-tree-sort\Binary-tree-sort\main.cpp(32,73): warning C4244:             T=float
-D:\практика\Binary-tree-sort\Binary-tree-sort\main.cpp(32,73): warning C4244:         ]
-D:\практика\Binary-tree-sort\Binary-tree-sort\main.cpp(32,52): warning C4244: аргумент: преобразование "const int" в "T", возможна потеря данных
-D:\практика\Binary-tree-sort\Binary-tree-sort\main.cpp(32,52): warning C4244:         with
-D:\практика\Binary-tree-sort\Binary-tree-sort\main.cpp(32,52): warning C4244:         [
-D:\практика\Binary-tree-sort\Binary-tree-sort\main.cpp(32,52): warning C4244:             T=float
-D:\практика\Binary-tree-sort\Binary-tree-sort\main.cpp(32,52): warning C4244:         ]
-D:\практика\Binary-tree-sort\Binary-tree-sort\main.cpp(122,38): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
-D:\практика\Binary-tree-sort\Binary-tree-sort\main.cpp(134,41): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
-D:\практика\Binary-tree-sort\Binary-tree-sort\main.cpp(147,84): warning C4244: аргумент: преобразование "T" в "T", возможна потеря данных
-D:\практика\Binary-tree-sort\Binary-tree-sort\main.cpp(147,84): warning C4244:         with
-D:\практика\Binary-tree-sort\Binary-tree-sort\main.cpp(147,84): warning C4244:         [
-D:\практика\Binary-tree-sort\Binary-tree-sort\main.cpp(147,84): warning C4244:             T=int
-D:\практика\Binary-tree-sort\Binary-tree-sort\main.cpp(147,84): warning C4244:         ]
-D:\практика\Binary-tree-sort\Binary-tree-sort\main.cpp(147,84): warning C4244:         and
-D:\практика\Binary-tree-sort\Binary-tree-sort\main.cpp(147,84): warning C4244:         [
-D:\практика\Binary-tree-sort\Binary-tree-sort\main.cpp(147,84): warning C4244:             T=float
-D:\практика\Binary-tree-sort\Binary-tree-sort\main.cpp(147,84): warning C4244:         ]
-D:\практика\Binary-tree-sort\Binary-tree-sort\main.cpp(147,72): warning C4244: аргумент: преобразование "T" в "T", возможна потеря данных
-D:\практика\Binary-tree-sort\Binary-tree-sort\main.cpp(147,72): warning C4244:         with
-D:\практика\Binary-tree-sort\Binary-tree-sort\main.cpp(147,72): warning C4244:         [
-D:\практика\Binary-tree-sort\Binary-tree-sort\main.cpp(147,72): warning C4244:             T=int
-D:\практика\Binary-tree-sort\Binary-tree-sort\main.cpp(147,72): warning C4244:         ]
-D:\практика\Binary-tree-sort\Binary-tree-sort\main.cpp(147,72): warning C4244:         and
-D:\практика\Binary-tree-sort\Binary-tree-sort\main.cpp(147,72): warning C4244:         [
-D:\практика\Binary-tree-sort\Binary-tree-sort\main.cpp(147,72): warning C4244:             T=float
-D:\практика\Binary-tree-sort\Binary-tree-sort\main.cpp(147,72): warning C4244:         ]
-D:\практика\Binary-tree-sort\Binary-tree-sort\main.cpp(173,87): warning C4244: аргумент: преобразование "T" в "T", возможна потеря данных
-D:\практика\Binary-tree-sort\Binary-tree-sort\main.cpp(173,87): warning C4244:         with
-D:\практика\Binary-tree-sort\Binary-tree-sort\main.cpp(173,87): warning C4244:         [
-D:\практика\Binary-tree-sort\Binary-tree-sort\main.cpp(173,87): warning C4244:             T=int
-D:\практика\Binary-tree-sort\Binary-tree-sort\main.cpp(173,87): warning C4244:         ]
-D:\практика\Binary-tree-sort\Binary-tree-sort\main.cpp(173,87): warning C4244:         and
-D:\практика\Binary-tree-sort\Binary-tree-sort\main.cpp(173,87): warning C4244:         [
-D:\практика\Binary-tree-sort\Binary-tree-sort\main.cpp(173,87): warning C4244:             T=float
-D:\практика\Binary-tree-sort\Binary-tree-sort\main.cpp(173,87): warning C4244:         ]
-D:\практика\Binary-tree-sort\Binary-tree-sort\main.cpp(173,75): warning C4244: аргумент: преобразование "T" в "T", возможна потеря данных
-D:\практика\Binary-tree-sort\Binary-tree-sort\main.cpp(173,75): warning C4244:         with
-D:\практика\Binary-tree-sort\Binary-tree-sort\main.cpp(173,75): warning C4244:         [
-D:\практика\Binary-tree-sort\Binary-tree-sort\main.cpp(173,75): warning C4244:             T=int
-D:\практика\Binary-tree-sort\Binary-tree-sort\main.cpp(173,75): warning C4244:         ]
-D:\практика\Binary-tree-sort\Binary-tree-sort\main.cpp(173,75): warning C4244:         and
-D:\практика\Binary-tree-sort\Binary-tree-sort\main.cpp(173,75): warning C4244:         [
-D:\практика\Binary-tree-sort\Binary-tree-sort\main.cpp(173,75): warning C4244:             T=float
-D:\практика\Binary-tree-sort\Binary-tree-sort\main.cpp(173,75): warning C4244:         ]
-sfml-graphics-s-d.lib(Sprite.obj) : warning LNK4099: "" PDB не найден с "sfml-graphics-s-d.lib(Sprite.obj)" или на ""; компоновка объекта выполняется как при отсутствии отладочных данных
-sfml-graphics-s-d.lib(Font.obj) : warning LNK4099: "" PDB не найден с "sfml-graphics-s-d.lib(Font.obj)" или на ""; компоновка объекта выполняется как при отсутствии отладочных данных
-sfml-graphics-s-d.lib(GLCheck.obj) : warning LNK4099: "" PDB не найден с "sfml-graphics-s-d.lib(GLCheck.obj)" или на ""; компоновка объекта выполняется как при отсутствии отладочных данных
-sfml-graphics-s-d.lib(Image.obj) : warning LNK4099: "" PDB не найден с "sfml-graphics-s-d.lib(Image.obj)" или на ""; компоновка объекта выполняется как при отсутствии отладочных данных
-sfml-graphics-s-d.lib(ImageLoader.obj) : warning LNK4099: "" PDB не найден с "sfml-graphics-s-d.lib(ImageLoader.obj)" или на ""; компоновка объекта выполняется как при отсутствии отладочных данных
-sfml-graphics-s-d.lib(RenderTarget.obj) : warning LNK4099: "" PDB не найден с "sfml-graphics-s-d.lib(RenderTarget.obj)" или на ""; компоновка объекта выполняется как при отсутствии отладочных данных
-sfml-graphics-s-d.lib(RenderWindow.obj) : warning LNK4099: "" PDB не найден с "sfml-graphics-s-d.lib(RenderWindow.obj)" или на ""; компоновка объекта выполняется как при отсутствии отладочных данных
-sfml-graphics-s-d.lib(Shader.obj) : warning LNK4099: "" PDB не найден с "sfml-graphics-s-d.lib(Shader.obj)" или на ""; компоновка объекта выполняется как при отсутствии отладочных данных
-sfml-graphics-s-d.lib(Texture.obj) : warning LNK4099: "" PDB не найден с "sfml-graphics-s-d.lib(Texture.obj)" или на ""; компоновка объекта выполняется как при отсутствии отладочных данных
-sfml-graphics-s-d.lib(Shape.obj) : warning LNK4099: "" PDB не найден с "sfml-graphics-s-d.lib(Shape.obj)" или на ""; компоновка объекта выполняется как при отсутствии отладочных данных
-sfml-graphics-s-d.lib(Text.obj) : warning LNK4099: "" PDB не найден с "sfml-graphics-s-d.lib(Text.obj)" или на ""; компоновка объекта выполняется как при отсутствии отладочных данных
-sfml-graphics-s-d.lib(VertexArray.obj) : warning LNK4099: "" PDB не найден с "sfml-graphics-s-d.lib(VertexArray.obj)" или на ""; компоновка объекта выполняется как при отсутствии отладочных данных
-sfml-graphics-s-d.lib(RenderTextureImplFBO.obj) : warning LNK4099: "" PDB не найден с "sfml-graphics-s-d.lib(RenderTextureImplFBO.obj)" или на ""; компоновка объекта выполняется как при отсутствии отладочных данных
-sfml-window-s-d.lib(GlContext.obj) : warning LNK4099: "" PDB не найден с "sfml-window-s-d.lib(GlContext.obj)" или на ""; компоновка объекта выполняется как при отсутствии отладочных данных
-sfml-window-s-d.lib(Joystick.obj) : warning LNK4099: "" PDB не найден с "sfml-window-s-d.lib(Joystick.obj)" или на ""; компоновка объекта выполняется как при отсутствии отладочных данных
-sfml-window-s-d.lib(JoystickManager.obj) : warning LNK4099: "" PDB не найден с "sfml-window-s-d.lib(JoystickManager.obj)" или на ""; компоновка объекта выполняется как при отсутствии отладочных данных
-sfml-window-s-d.lib(Mouse.obj) : warning LNK4099: "" PDB не найден с "sfml-window-s-d.lib(Mouse.obj)" или на ""; компоновка объекта выполняется как при отсутствии отладочных данных
-sfml-window-s-d.lib(VideoMode.obj) : warning LNK4099: "" PDB не найден с "sfml-window-s-d.lib(VideoMode.obj)" или на ""; компоновка объекта выполняется как при отсутствии отладочных данных
-sfml-window-s-d.lib(Window.obj) : warning LNK4099: "" PDB не найден с "sfml-window-s-d.lib(Window.obj)" или на ""; компоновка объекта выполняется как при отсутствии отладочных данных
-sfml-window-s-d.lib(WindowBase.obj) : warning LNK4099: "" PDB не найден с "sfml-window-s-d.lib(WindowBase.obj)" или на ""; компоновка объекта выполняется как при отсутствии отладочных данных
-sfml-window-s-d.lib(WindowImpl.obj) : warning LNK4099: "" PDB не найден с "sfml-window-s-d.lib(WindowImpl.obj)" или на ""; компоновка объекта выполняется как при отсутствии отладочных данных
-sfml-window-s-d.lib(InputImpl.obj) : warning LNK4099: "" PDB не найден с "sfml-window-s-d.lib(InputImpl.obj)" или на ""; компоновка объекта выполняется как при отсутствии отладочных данных
-sfml-window-s-d.lib(JoystickImpl.obj) : warning LNK4099: "" PDB не найден с "sfml-window-s-d.lib(JoystickImpl.obj)" или на ""; компоновка объекта выполняется как при отсутствии отладочных данных
-sfml-window-s-d.lib(VideoModeImpl.obj) : warning LNK4099: "" PDB не найден с "sfml-window-s-d.lib(VideoModeImpl.obj)" или на ""; компоновка объекта выполняется как при отсутствии отладочных данных
-sfml-window-s-d.lib(VulkanImplWin32.obj) : warning LNK4099: "" PDB не найден с "sfml-window-s-d.lib(VulkanImplWin32.obj)" или на ""; компоновка объекта выполняется как при отсутствии отладочных данных
-sfml-window-s-d.lib(WindowImplWin32.obj) : warning LNK4099: "" PDB не найден с "sfml-window-s-d.lib(WindowImplWin32.obj)" или на ""; компоновка объекта выполняется как при отсутствии отладочных данных
-sfml-window-s-d.lib(WglContext.obj) : warning LNK4099: "" PDB не найден с "sfml-window-s-d.lib(WglContext.obj)" или на ""; компоновка объекта выполняется как при отсутствии отладочных данных
-sfml-system-s-d.lib(String.obj) : warning LNK4099: "" PDB не найден с "sfml-system-s-d.lib(String.obj)" или на ""; компоновка объекта выполняется как при отсутствии отладочных данных
-  Binary-tree-sort.vcxproj -> D:\практика\Binary-tree-sort\Build\x64\Bin\Binary-tree-sort.exe
+D:\Projects\Binary-tree-sort\Binary-tree-sort\main.cpp(38,73): warning C4244: аргумент: преобразование "const int" в "T", возможна потеря данных
+D:\Projects\Binary-tree-sort\Binary-tree-sort\main.cpp(38,73): warning C4244:         with
+D:\Projects\Binary-tree-sort\Binary-tree-sort\main.cpp(38,73): warning C4244:         [
+D:\Projects\Binary-tree-sort\Binary-tree-sort\main.cpp(38,73): warning C4244:             T=float
+D:\Projects\Binary-tree-sort\Binary-tree-sort\main.cpp(38,73): warning C4244:         ]
+D:\Projects\Binary-tree-sort\Binary-tree-sort\main.cpp(38,52): warning C4244: аргумент: преобразование "const int" в "T", возможна потеря данных
+D:\Projects\Binary-tree-sort\Binary-tree-sort\main.cpp(38,52): warning C4244:         with
+D:\Projects\Binary-tree-sort\Binary-tree-sort\main.cpp(38,52): warning C4244:         [
+D:\Projects\Binary-tree-sort\Binary-tree-sort\main.cpp(38,52): warning C4244:             T=float
+D:\Projects\Binary-tree-sort\Binary-tree-sort\main.cpp(38,52): warning C4244:         ]
+D:\Projects\Binary-tree-sort\Binary-tree-sort\main.cpp(127,42): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+D:\Projects\Binary-tree-sort\Binary-tree-sort\main.cpp(139,44): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+D:\Projects\Binary-tree-sort\Binary-tree-sort\main.cpp(155,88): warning C4244: аргумент: преобразование "T" в "T", возможна потеря данных
+D:\Projects\Binary-tree-sort\Binary-tree-sort\main.cpp(155,88): warning C4244:         with
+D:\Projects\Binary-tree-sort\Binary-tree-sort\main.cpp(155,88): warning C4244:         [
+D:\Projects\Binary-tree-sort\Binary-tree-sort\main.cpp(155,88): warning C4244:             T=int
+D:\Projects\Binary-tree-sort\Binary-tree-sort\main.cpp(155,88): warning C4244:         ]
+D:\Projects\Binary-tree-sort\Binary-tree-sort\main.cpp(155,88): warning C4244:         and
+D:\Projects\Binary-tree-sort\Binary-tree-sort\main.cpp(155,88): warning C4244:         [
+D:\Projects\Binary-tree-sort\Binary-tree-sort\main.cpp(155,88): warning C4244:             T=float
+D:\Projects\Binary-tree-sort\Binary-tree-sort\main.cpp(155,88): warning C4244:         ]
+D:\Projects\Binary-tree-sort\Binary-tree-sort\main.cpp(155,76): warning C4244: аргумент: преобразование "T" в "T", возможна потеря данных
+D:\Projects\Binary-tree-sort\Binary-tree-sort\main.cpp(155,76): warning C4244:         with
+D:\Projects\Binary-tree-sort\Binary-tree-sort\main.cpp(155,76): warning C4244:         [
+D:\Projects\Binary-tree-sort\Binary-tree-sort\main.cpp(155,76): warning C4244:             T=int
+D:\Projects\Binary-tree-sort\Binary-tree-sort\main.cpp(155,76): warning C4244:         ]
+D:\Projects\Binary-tree-sort\Binary-tree-sort\main.cpp(155,76): warning C4244:         and
+D:\Projects\Binary-tree-sort\Binary-tree-sort\main.cpp(155,76): warning C4244:         [
+D:\Projects\Binary-tree-sort\Binary-tree-sort\main.cpp(155,76): warning C4244:             T=float
+D:\Projects\Binary-tree-sort\Binary-tree-sort\main.cpp(155,76): warning C4244:         ]
+D:\Projects\Binary-tree-sort\Binary-tree-sort\main.cpp(181,88): warning C4244: аргумент: преобразование "T" в "T", возможна потеря данных
+D:\Projects\Binary-tree-sort\Binary-tree-sort\main.cpp(181,88): warning C4244:         with
+D:\Projects\Binary-tree-sort\Binary-tree-sort\main.cpp(181,88): warning C4244:         [
+D:\Projects\Binary-tree-sort\Binary-tree-sort\main.cpp(181,88): warning C4244:             T=int
+D:\Projects\Binary-tree-sort\Binary-tree-sort\main.cpp(181,88): warning C4244:         ]
+D:\Projects\Binary-tree-sort\Binary-tree-sort\main.cpp(181,88): warning C4244:         and
+D:\Projects\Binary-tree-sort\Binary-tree-sort\main.cpp(181,88): warning C4244:         [
+D:\Projects\Binary-tree-sort\Binary-tree-sort\main.cpp(181,88): warning C4244:             T=float
+D:\Projects\Binary-tree-sort\Binary-tree-sort\main.cpp(181,88): warning C4244:         ]
+D:\Projects\Binary-tree-sort\Binary-tree-sort\main.cpp(181,76): warning C4244: аргумент: преобразование "T" в "T", возможна потеря данных
+D:\Projects\Binary-tree-sort\Binary-tree-sort\main.cpp(181,76): warning C4244:         with
+D:\Projects\Binary-tree-sort\Binary-tree-sort\main.cpp(181,76): warning C4244:         [
+D:\Projects\Binary-tree-sort\Binary-tree-sort\main.cpp(181,76): warning C4244:             T=int
+D:\Projects\Binary-tree-sort\Binary-tree-sort\main.cpp(181,76): warning C4244:         ]
+D:\Projects\Binary-tree-sort\Binary-tree-sort\main.cpp(181,76): warning C4244:         and
+D:\Projects\Binary-tree-sort\Binary-tree-sort\main.cpp(181,76): warning C4244:         [
+D:\Projects\Binary-tree-sort\Binary-tree-sort\main.cpp(181,76): warning C4244:             T=float
+D:\Projects\Binary-tree-sort\Binary-tree-sort\main.cpp(181,76): warning C4244:         ]
+  Binary-tree-sort.vcxproj -> D:\Projects\Binary-tree-sort\Build\x64\Bin\Binary-tree-sort.exe
