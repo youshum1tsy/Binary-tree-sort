@@ -120,7 +120,7 @@ int main() {
 
     sf::Text mainMenu[4];
     std::string mainMenuItems[4] = { "Random", "Open file 1", "Open file 2", "Exit" };
-    
+
     for (int i = 0; i < 4; ++i) {
         mainMenu[i].setFont(font);
         mainMenu[i].setString(mainMenuItems[i]);
@@ -131,14 +131,14 @@ int main() {
     Slider slider(250, 100, 600, 50, font);
 
     sf::Text randomMenu[4];
-    std::string randomMenuItems[4] = { "Sorted file", "Unsorted file", "Back to main menu", "Exit" };
-   
+    std::string randomMenuItems[4] = { "Start sort", "Sorted file", "Unsorted file", "Back to main menu" };
+
     sf::Text OtherMenu1[4];
-    std::string OtherMenuItems[4] = {"Start sort", "Sorted file", "Unsorted file", "Back to main menu" };
+    std::string OtherMenuItems[4] = { "Start sort", "Sorted file", "Unsorted file", "Back to main menu" };
 
     sf::Text OtherMenu2[4];
     std::string OtherMenuItems2[4] = { "Start sort", "Sorted file", "Unsorted file", "Back to main menu" };
-  
+
 
     for (int i = 0; i < 4; ++i) {
         randomMenu[i].setFont(font);
@@ -151,13 +151,13 @@ int main() {
         OtherMenu1[i].setString(OtherMenuItems[i]);
         OtherMenu1[i].setPosition(100, 300 + i * 80);
     }
-   
+
     for (int i = 0; i < 4; ++i) {
         OtherMenu2[i].setFont(font);
         OtherMenu2[i].setString(OtherMenuItems2[i]);
         OtherMenu2[i].setPosition(100, 300 + i * 80);
     }
-   
+
     int currentMenu = MenuConstants::MainMenu;
 
     while (window.isOpen()) {
@@ -199,22 +199,22 @@ int main() {
                     for (int i = 0; i < 4; ++i) {
                         if (mainMenu[i].getGlobalBounds().contains(mousePos.x, mousePos.y)) {
                             if (i == 0) {
-                                openFile("file1.txt");
+                                std::cout << "start" << "\n";
                             }
                             else if (i == 1) {
-                                openFile("file2.txt");
+                                openFile("file1.txt");
                             }
                             else if (i == 2) {
-                                currentMenu = MenuConstants::MainMenu;
+                                openFile("file2.txt");
                             }
                             else if (i == 3) {
-                                window.close();
+                                currentMenu = MenuConstants::MainMenu;
                             }
                         }
                     }
                 }
             }
-            
+
             else if (currentMenu == MenuConstants::OtherMenu1) {
                 std::string timeString = "Time:";
                 text.setString(timeString);
@@ -224,22 +224,22 @@ int main() {
                     sf::Vector2i mousePos = sf::Mouse::getPosition(window);
                     for (int i = 0; i < 4; ++i) {
                         if (mainMenu[i].getGlobalBounds().contains(mousePos.x, mousePos.y)) {
-                            if (i == 1) {
-                                openFile("file3.txt");
+                            if (i == 0) {
+                                std::cout << "start" << "\n";
+                            }
+                            else if (i == 1) {
+                                openFile("file1.txt");
                             }
                             else if (i == 2) {
-                                openFile("file4.txt");
+                                openFile("file2.txt");
                             }
                             else if (i == 3) {
                                 currentMenu = MenuConstants::MainMenu;
                             }
-                            else if (i == 0) {
-                                //старт сортировки
-                            }
                         }
                     }
                 }
-            
+
             }
 
             else if (currentMenu == MenuConstants::OtherMenu2) {
@@ -251,17 +251,17 @@ int main() {
                     sf::Vector2i mousePos = sf::Mouse::getPosition(window);
                     for (int i = 0; i < 4; ++i) {
                         if (mainMenu[i].getGlobalBounds().contains(mousePos.x, mousePos.y)) {
-                            if (i == 1) {
-                                openFile("file5.txt");
+                            if (i == 0) {
+                                std::cout << "start" << "\n";
+                            }
+                            else if (i == 1) {
+                                openFile("file1.txt");
                             }
                             else if (i == 2) {
-                                openFile("file6.txt");
+                                openFile("file2.txt");
                             }
                             else if (i == 3) {
                                 currentMenu = MenuConstants::MainMenu;
-                            }
-                            else if (i == 0) {
-                                //старт сортировки
                             }
                         }
                     }
