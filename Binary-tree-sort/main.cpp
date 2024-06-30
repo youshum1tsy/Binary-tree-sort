@@ -132,6 +132,13 @@ int main() {
 
     sf::Text randomMenu[4];
     std::string randomMenuItems[4] = { "Sorted file", "Unsorted file", "Back to main menu", "Exit" };
+   
+    sf::Text OtherMenu1[4];
+    std::string OtherMenuItems[4] = {"Start sort", "Sorted file", "Unsorted file", "Back to main menu" };
+
+    sf::Text OtherMenu2[4];
+    std::string OtherMenuItems2[4] = { "Start sort", "Sorted file", "Unsorted file", "Back to main menu" };
+  
 
     for (int i = 0; i < 4; ++i) {
         randomMenu[i].setFont(font);
@@ -139,6 +146,18 @@ int main() {
         randomMenu[i].setPosition(100, 300 + i * 80);
     }
 
+    for (int i = 0; i < 4; ++i) {
+        OtherMenu1[i].setFont(font);
+        OtherMenu1[i].setString(OtherMenuItems[i]);
+        OtherMenu1[i].setPosition(100, 300 + i * 80);
+    }
+   
+    for (int i = 0; i < 4; ++i) {
+        OtherMenu2[i].setFont(font);
+        OtherMenu2[i].setString(OtherMenuItems2[i]);
+        OtherMenu2[i].setPosition(100, 300 + i * 80);
+    }
+   
     int currentMenu = MenuConstants::MainMenu;
 
     while (window.isOpen()) {
@@ -180,10 +199,10 @@ int main() {
                     for (int i = 0; i < 4; ++i) {
                         if (mainMenu[i].getGlobalBounds().contains(mousePos.x, mousePos.y)) {
                             if (i == 0) {
-                                // open sorted file
+                                openFile("file1.txt");
                             }
                             else if (i == 1) {
-                                // open unsorted file
+                                openFile("file2.txt");
                             }
                             else if (i == 2) {
                                 currentMenu = MenuConstants::MainMenu;
@@ -197,11 +216,56 @@ int main() {
             }
             
             else if (currentMenu == MenuConstants::OtherMenu1) {
+                std::string timeString = "Time:";
+                text.setString(timeString);
+                text.setPosition(600, 295);
+                slider.handleEvent(event);
+                if (event.type == sf::Event::MouseButtonPressed) {
+                    sf::Vector2i mousePos = sf::Mouse::getPosition(window);
+                    for (int i = 0; i < 4; ++i) {
+                        if (mainMenu[i].getGlobalBounds().contains(mousePos.x, mousePos.y)) {
+                            if (i == 1) {
+                                openFile("file3.txt");
+                            }
+                            else if (i == 2) {
+                                openFile("file4.txt");
+                            }
+                            else if (i == 3) {
+                                currentMenu = MenuConstants::MainMenu;
+                            }
+                            else if (i == 0) {
+                                //старт сортировки
+                            }
+                        }
+                    }
+                }
             
             }
 
             else if (currentMenu == MenuConstants::OtherMenu2) {
-
+                std::string timeString = "Time:";
+                text.setString(timeString);
+                text.setPosition(600, 295);
+                slider.handleEvent(event);
+                if (event.type == sf::Event::MouseButtonPressed) {
+                    sf::Vector2i mousePos = sf::Mouse::getPosition(window);
+                    for (int i = 0; i < 4; ++i) {
+                        if (mainMenu[i].getGlobalBounds().contains(mousePos.x, mousePos.y)) {
+                            if (i == 1) {
+                                openFile("file5.txt");
+                            }
+                            else if (i == 2) {
+                                openFile("file6.txt");
+                            }
+                            else if (i == 3) {
+                                currentMenu = MenuConstants::MainMenu;
+                            }
+                            else if (i == 0) {
+                                //старт сортировки
+                            }
+                        }
+                    }
+                }
             }
 
         }
@@ -223,11 +287,17 @@ int main() {
         }
 
         else if (currentMenu == MenuConstants::OtherMenu1) {
-            
+            for (int i = 0; i < 4; ++i) {
+                window.draw(text);
+                window.draw(OtherMenu1[i]);
+            }
         }
 
         else if (currentMenu == MenuConstants::OtherMenu2) {
-            
+            for (int i = 0; i < 4; ++i) {
+                window.draw(text);
+                window.draw(OtherMenu2[i]);
+            }
         }
 
         window.display();
