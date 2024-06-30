@@ -161,8 +161,36 @@ void collectSortedValues(Node* root, std::vector<int>& sortedArray) {
 std::vector<int> binaryTreeSort(const std::vector<int>& arr) {
     Node* root = buildBinarySortTree(arr);
     std::vector<int> sortedArray;
-    collectSortedValues(root, sortedArray); 
+    collectSortedValues(root, sortedArray);
     return sortedArray;
+}
+
+void parseNumbersFromFile(const std::string& filename, std::vector<int>& numbers) {
+    std::ifstream file(filename);
+
+    if (!file.is_open()) {
+        std::cerr << "Could not open the file " << filename << std::endl;
+        return;
+    }
+
+    std::string line;
+    while (std::getline(file, line)) {
+        std::stringstream ss(line);
+        std::string item;
+        while (std::getline(ss, item, ',')) {
+            try {
+                numbers.push_back(std::stoi(item));
+            }
+            catch (const std::invalid_argument& e) {
+                std::cerr << "Invalid number: " << item << std::endl;
+            }
+            catch (const std::out_of_range& e) {
+                std::cerr << "Number out of range: " << item << std::endl;
+            }
+        }
+    }
+
+    file.close();
 }
 
 int main() {
@@ -263,7 +291,11 @@ int main() {
                             if (i == 0) {
                                 std::cout << "start" << "\n";
 
-                                std::vector<int> data = { 4, 2, 6, 1, 3, 5, 7 };
+                                //функция для генерации файла
+
+                                std::vector<int> data;
+
+                                parseNumbersFromFile("../Dependencies/FILES/testSet.txt", data);
 
                                 std::vector<int> sortedData = binaryTreeSort(data);
 
@@ -272,6 +304,7 @@ int main() {
                                     std::cout << val << " ";
                                 }
                                 std::cout << std::endl;
+
 
                             }
                             else if (i == 1) {
@@ -299,6 +332,18 @@ int main() {
                         if (mainMenu[i].getGlobalBounds().contains(mousePos.x, mousePos.y)) {
                             if (i == 0) {
                                 std::cout << "start" << "\n";
+
+                                std::vector<int> data;
+
+                                parseNumbersFromFile("../Dependencies/FILES/testSet.txt", data);
+
+                                std::vector<int> sortedData = binaryTreeSort(data);
+
+                                std::cout << "Sorted: ";
+                                for (int val : sortedData) {
+                                    std::cout << val << " ";
+                                }
+                                std::cout << std::endl;
 
                             }
                             else if (i == 1) {
