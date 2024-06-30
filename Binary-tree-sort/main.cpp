@@ -87,6 +87,7 @@ private:
     bool isDragging;
 };
 
+
 void openFile(const std::string& filePath) {
     std::ifstream file(filePath);
     if (file.is_open()) {
@@ -102,6 +103,67 @@ void openFile(const std::string& filePath) {
     }
 }
 
+struct Node {
+    int value;
+    Node* left = nullptr;
+    Node* right = nullptr;
+    Node* parent = nullptr;
+};
+
+Node* createNode(int val, Node* parent = nullptr) {
+    Node* newNode = new Node;
+    newNode->value = val;
+    newNode->parent = parent;
+    return newNode;
+}
+
+void insertNode(Node*& root, int val) {
+    if (root == nullptr) {
+        root = createNode(val);
+    }
+    else {
+        Node* current = root;
+        Node* parent = nullptr;
+        while (current != nullptr) {
+            parent = current;
+            if (val < current->value) {
+                current = current->left;
+            }
+            else {
+                current = current->right;
+            }
+        }
+        if (val < parent->value) {
+            parent->left = createNode(val, parent);
+        }
+        else {
+            parent->right = createNode(val, parent);
+        }
+    }
+}
+
+Node* buildBinarySortTree(const std::vector<int>& arr) {
+    Node* root = nullptr;
+    for (int val : arr) {
+        insertNode(root, val);
+    }
+    return root;
+}
+
+void collectSortedValues(Node* root, std::vector<int>& sortedArray) {
+    if (root != nullptr) {
+        collectSortedValues(root->left, sortedArray);
+        sortedArray.push_back(root->value);
+        collectSortedValues(root->right, sortedArray);
+    }
+}
+
+std::vector<int> binaryTreeSort(const std::vector<int>& arr) {
+    Node* root = buildBinarySortTree(arr);
+    std::vector<int> sortedArray;
+    collectSortedValues(root, sortedArray); 
+    return sortedArray;
+}
 
 int main() {
 
@@ -200,6 +262,17 @@ int main() {
                         if (mainMenu[i].getGlobalBounds().contains(mousePos.x, mousePos.y)) {
                             if (i == 0) {
                                 std::cout << "start" << "\n";
+
+                                std::vector<int> data = { 4, 2, 6, 1, 3, 5, 7 };
+
+                                std::vector<int> sortedData = binaryTreeSort(data);
+
+                                std::cout << "Sorted: ";
+                                for (int val : sortedData) {
+                                    std::cout << val << " ";
+                                }
+                                std::cout << std::endl;
+
                             }
                             else if (i == 1) {
                                 openFile("file1.txt");
@@ -226,6 +299,7 @@ int main() {
                         if (mainMenu[i].getGlobalBounds().contains(mousePos.x, mousePos.y)) {
                             if (i == 0) {
                                 std::cout << "start" << "\n";
+
                             }
                             else if (i == 1) {
                                 openFile("file1.txt");
