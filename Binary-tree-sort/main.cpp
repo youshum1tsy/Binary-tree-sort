@@ -87,21 +87,6 @@ private:
     bool isDragging;
 };
 
-void openFile(const std::string& filePath) {
-    std::ifstream file(filePath);
-    if (file.is_open()) {
-        std::cout << "Contents of " << filePath << ":\n";
-        std::string line;
-        while (std::getline(file, line)) {
-            std::cout << line << std::endl;
-        }
-        file.close();
-    }
-    else {
-        std::cout << "Failed to open file: " << filePath << std::endl;
-    }
-}
-
 struct Node {
     int value;
     Node* left = nullptr;
@@ -222,7 +207,6 @@ void writeNumbersToFile(const std::string& path, const std::vector<int>& data) {
         return;
     }
 
-    // Записываем значения вектора в файл, разделяя запятыми
     for (size_t i = 0; i < data.size(); ++i) {
         outFile << data[i];
         if (i < data.size() - 1) {
