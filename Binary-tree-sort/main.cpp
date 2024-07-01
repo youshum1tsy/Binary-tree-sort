@@ -5,18 +5,18 @@
 #include <sstream>
 #include <iostream>
 #include <fstream>
+#include <windows.h>
 
 namespace MenuConstants {
     const int MainMenu = 0;
     const int RandomMenu = 1;
-    const int OtherMenu1 = 2;
-    const int OtherMenu2 = 3;
+    const int File1 = 2;
+    const int File2 = 3;
 }
 
 class Slider {
 public:
-    Slider(float x, float y, float width, float height, sf::Font& font)
-        : minValue(0), maxValue(100000), currentValue(0), isDragging(false) {
+    Slider(float x, float y, float width, float height, sf::Font& font) : minValue(0), maxValue(100000), currentValue(0), isDragging(false) {
         track.setSize(sf::Vector2f(width, height / 4));
         track.setPosition(x, y + height / 2 - track.getSize().y / 2);
         track.setFillColor(sf::Color(200, 200, 200));
@@ -86,7 +86,6 @@ private:
     int currentValue;
     bool isDragging;
 };
-
 
 void openFile(const std::string& filePath) {
     std::ifstream file(filePath);
@@ -165,11 +164,11 @@ std::vector<int> binaryTreeSort(const std::vector<int>& arr) {
     return sortedArray;
 }
 
-void parseNumbersFromFile(const std::string& filename, std::vector<int>& numbers) {
-    std::ifstream file(filename);
+void parseNumbersFromFile(const std::string& path, std::vector<int>& numbers) {
+    std::ifstream file(path);
 
     if (!file.is_open()) {
-        std::cerr << "Could not open the file " << filename << std::endl;
+        std::cerr << "Could not open the file " << path << std::endl;
         return;
     }
 
@@ -192,6 +191,54 @@ void parseNumbersFromFile(const std::string& filename, std::vector<int>& numbers
 
     file.close();
 }
+
+void generateNumbersFile(const std::string& path, int numElements) {
+    std::ofstream outFile(path);
+    if (!outFile) {
+        std::cerr << "Error opening file: " << path << std::endl;
+        return;
+    }
+
+    srand(time(NULL));
+
+    for (int i = 0; i < numElements; ++i) {
+        int number = (rand() % 10000) * 10 + (rand() % 10);
+        if (rand() % 2 == 0) {
+            number *= -1;
+        }
+        outFile << number;
+        if (i < numElements - 1) {
+            outFile << ",";
+        }
+    }
+
+    outFile.close();
+}
+
+void writeNumbersToFile(const std::string& path, const std::vector<int>& data) {
+    std::ofstream outFile(path);
+    if (!outFile.is_open()) {
+        std::cerr << "Не удалось открыть файл для записи: " << path << std::endl;
+        return;
+    }
+
+    // Записываем значения вектора в файл, разделяя запятыми
+    for (size_t i = 0; i < data.size(); ++i) {
+        outFile << data[i];
+        if (i < data.size() - 1) {
+            outFile << ",";
+        }
+    }
+
+    outFile.close();
+}
+
+void openFile(const wchar_t* relativePath) {
+    wchar_t absolutePath[MAX_PATH];
+    GetFullPathName(relativePath, MAX_PATH, absolutePath, NULL);
+    HINSTANCE result = ShellExecute(NULL, L"open", absolutePath, NULL, NULL, SW_SHOWNORMAL);
+}
+
 
 int main() {
 
@@ -249,7 +296,8 @@ int main() {
     }
 
     int currentMenu = MenuConstants::MainMenu;
-
+    sf::Clock clock;
+    sf::Time elapsed;
     while (window.isOpen()) {
         sf::Event event;
         while (window.pollEvent(event)) {
@@ -266,10 +314,10 @@ int main() {
                                 currentMenu = MenuConstants::RandomMenu;
                             }
                             else if (i == 1) {
-                                currentMenu = MenuConstants::OtherMenu1;
+                                currentMenu = MenuConstants::File1;
                             }
                             else if (i == 2) {
-                                currentMenu = MenuConstants::OtherMenu2;
+                                currentMenu = MenuConstants::File2;
                             }
                             else if (i == 3) {
                                 window.close();
@@ -280,38 +328,31 @@ int main() {
             }
 
             else if (currentMenu == MenuConstants::RandomMenu) {
-                std::string timeString = "Time:";
-                text.setString(timeString);
-                text.setPosition(600, 299);
+                text.setPosition(600, 295);
                 slider.handleEvent(event);
                 if (event.type == sf::Event::MouseButtonPressed) {
                     sf::Vector2i mousePos = sf::Mouse::getPosition(window);
                     for (int i = 0; i < 4; ++i) {
                         if (mainMenu[i].getGlobalBounds().contains(mousePos.x, mousePos.y)) {
                             if (i == 0) {
-                                std::cout << "start" << "\n";
 
-                                //функция для генерации файла
+                                generateNumbersFile("../Dependencies/FILES/randomUnsortedSet.txt", slider.getValue());
 
                                 std::vector<int> data;
-
-                                parseNumbersFromFile("../Dependencies/FILES/testSet.txt", data);
+                                clock.restart();
+                                parseNumbersFromFile("../Dependencies/FILES/randomUnsortedSet.txt", data);
 
                                 std::vector<int> sortedData = binaryTreeSort(data);
+                                elapsed = clock.getElapsedTime();
 
-                                std::cout << "Sorted: ";
-                                for (int val : sortedData) {
-                                    std::cout << val << " ";
-                                }
-                                std::cout << std::endl;
-
-
+                                writeNumbersToFile("../Dependencies/FILES/randomSortedSet.txt", sortedData);
+                                text.setString("Time: " + std::to_string(elapsed.asSeconds()) + " sec");
                             }
                             else if (i == 1) {
-                                openFile("file1.txt");
+                                openFile(L"../Dependencies/FILES/randomSortedSet.txt");
                             }
                             else if (i == 2) {
-                                openFile("file2.txt");
+                                openFile(L"../Dependencies/FILES/randomUnsortedSet.txt");
                             }
                             else if (i == 3) {
                                 currentMenu = MenuConstants::MainMenu;
@@ -321,36 +362,29 @@ int main() {
                 }
             }
 
-            else if (currentMenu == MenuConstants::OtherMenu1) {
-                std::string timeString = "Time:";
-                text.setString(timeString);
+            else if (currentMenu == MenuConstants::File1) {
                 text.setPosition(600, 295);
-                slider.handleEvent(event);
                 if (event.type == sf::Event::MouseButtonPressed) {
                     sf::Vector2i mousePos = sf::Mouse::getPosition(window);
                     for (int i = 0; i < 4; ++i) {
                         if (mainMenu[i].getGlobalBounds().contains(mousePos.x, mousePos.y)) {
                             if (i == 0) {
-                                std::cout << "start" << "\n";
 
                                 std::vector<int> data;
-
-                                parseNumbersFromFile("../Dependencies/FILES/testSet.txt", data);
-
+                                clock.restart();
+                                parseNumbersFromFile("../Dependencies/FILES/UnsortedSet1.txt", data);
                                 std::vector<int> sortedData = binaryTreeSort(data);
+                                elapsed = clock.getElapsedTime();
 
-                                std::cout << "Sorted: ";
-                                for (int val : sortedData) {
-                                    std::cout << val << " ";
-                                }
-                                std::cout << std::endl;
+                                writeNumbersToFile("../Dependencies/FILES/SortedSet1.txt", sortedData);
+                                text.setString("Time: " + std::to_string(elapsed.asSeconds()) + " sec");
 
                             }
                             else if (i == 1) {
-                                openFile("file1.txt");
+                                openFile(L"../Dependencies/FILES/SortedSet1.txt");
                             }
                             else if (i == 2) {
-                                openFile("file2.txt");
+                                openFile(L"../Dependencies/FILES/UnsortedSet1.txt");
                             }
                             else if (i == 3) {
                                 currentMenu = MenuConstants::MainMenu;
@@ -361,23 +395,29 @@ int main() {
 
             }
 
-            else if (currentMenu == MenuConstants::OtherMenu2) {
-                std::string timeString = "Time:";
-                text.setString(timeString);
+            else if (currentMenu == MenuConstants::File2) {
                 text.setPosition(600, 295);
-                slider.handleEvent(event);
                 if (event.type == sf::Event::MouseButtonPressed) {
                     sf::Vector2i mousePos = sf::Mouse::getPosition(window);
                     for (int i = 0; i < 4; ++i) {
                         if (mainMenu[i].getGlobalBounds().contains(mousePos.x, mousePos.y)) {
                             if (i == 0) {
-                                std::cout << "start" << "\n";
+
+                                std::vector<int> data;
+                                clock.restart();
+                                parseNumbersFromFile("../Dependencies/FILES/UnsortedSet2.txt", data);
+                                std::vector<int> sortedData = binaryTreeSort(data);
+                                elapsed = clock.getElapsedTime();
+
+                                writeNumbersToFile("../Dependencies/FILES/SortedSet2.txt", sortedData);
+                                text.setString("Time: " + std::to_string(elapsed.asSeconds()) + " sec");
+
                             }
                             else if (i == 1) {
-                                openFile("file1.txt");
+                                openFile(L"../Dependencies/FILES/SortedSet2.txt");
                             }
                             else if (i == 2) {
-                                openFile("file2.txt");
+                                openFile(L"../Dependencies/FILES/UnsortedSet2.txt");
                             }
                             else if (i == 3) {
                                 currentMenu = MenuConstants::MainMenu;
@@ -405,14 +445,14 @@ int main() {
             }
         }
 
-        else if (currentMenu == MenuConstants::OtherMenu1) {
+        else if (currentMenu == MenuConstants::File1) {
             for (int i = 0; i < 4; ++i) {
                 window.draw(text);
                 window.draw(OtherMenu1[i]);
             }
         }
 
-        else if (currentMenu == MenuConstants::OtherMenu2) {
+        else if (currentMenu == MenuConstants::File2) {
             for (int i = 0; i < 4; ++i) {
                 window.draw(text);
                 window.draw(OtherMenu2[i]);
